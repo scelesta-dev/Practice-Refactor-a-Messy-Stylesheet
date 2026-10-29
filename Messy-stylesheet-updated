@@ -1,0 +1,315 @@
+/* GIT 414/515 Module 2 — Refactored stylesheet */
+
+/* 1. DESIGN TOKENS */
+:root {
+--color-maroon: #8c1d40;
+--color-gold: #ffc627;
+--color-white: #ffffff;
+--color-text: #222222;
+--color-dark: #191919;
+--color-light: #f7f7f7;
+--color-border: #dddddd;
+--color-callout: #fff8df;
+
+--space-sm: 8px;
+--space-md: 12px;
+--space-lg: 16px;
+--space-xl: 20px;
+--space-2xl: 24px;
+--space-3xl: 32px;
+--space-4xl: 48px;
+
+--radius-sm: 4px;
+--radius-lg: 8px;
+--max-width: 1100px;
+}
+
+/* 2. BASE / FOUNDATION */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+background: var(--color-white);
+color: var(--color-text);
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
+line-height: 1.5;
+}
+
+header,
+.site-header {
+background: var(--color-maroon);
+color: var(--color-white);
+padding: var(--space-2xl);
+}
+
+main {
+max-width: var(--max-width);
+margin: 0 auto;
+padding: var(--space-3xl) var(--space-xl);
+}
+
+footer {
+background: var(--color-dark);
+color: var(--color-white);
+padding: var(--space-2xl);
+margin-top: var(--space-4xl);
+}
+
+footer a {
+color: var(--color-gold);
+}
+
+/* 3. HEADER / NAVIGATION */
+.site-header a {
+color: var(--color-white);
+text-decoration: none;
+}
+
+.site-header nav ul {
+list-style: none;
+padding: 0;
+margin: var(--space-lg) 0 0;
+display: flex;
+gap: var(--space-md);
+}
+
+.site-header li a {
+color: var(--color-white);
+padding: var(--space-sm) var(--space-md);
+border-radius: var(--radius-sm);
+}
+
+.site-header li a:hover,
+.site-header li a[aria-current="page"] {
+background: var(--color-gold);
+color: var(--color-dark);
+}
+
+/* 4. HERO COMPONENT */
+.hero {
+background: var(--color-light);
+border: 1px solid var(--color-border);
+padding: var(--space-3xl);
+margin-bottom: var(--space-3xl);
+}
+
+.hero h1 {
+color: var(--color-maroon);
+font-size: 42px;
+line-height: 1.1;
+margin: 0 0 var(--space-lg);
+}
+
+.hero p {
+font-size: 18px;
+color: var(--color-text);
+}
+
+/* 5. BUTTON COMPONENT */
+.button,
+.btn,
+button {
+display: inline-block;
+background: var(--color-maroon);
+color: var(--color-white);
+padding: var(--space-md) 18px;
+border-radius: var(--radius-sm);
+text-decoration: none;
+font-weight: bold;
+}
+
+button {
+border: 0;
+cursor: pointer;
+}
+
+.button:hover,
+.btn:hover,
+button:hover {
+background: var(--color-gold);
+color: var(--color-dark);
+}
+
+.button:focus-visible,
+.btn:focus-visible,
+button:focus-visible {
+outline: 3px solid var(--color-gold);
+outline-offset: 2px;
+}
+
+/* 6. CARD COMPONENTS */
+.card-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: var(--space-xl);
+margin: var(--space-3xl) 0;
+}
+
+.card,
+.event-card,
+.speaker-card {
+background: var(--color-white);
+border: 1px solid var(--color-border);
+border-radius: var(--radius-lg);
+padding: var(--space-xl);
+}
+
+.card h3,
+.event-card h3,
+.speaker-card h3 {
+color: var(--color-maroon);
+margin-top: 0;
+}
+
+.card a,
+.event-card a,
+.speaker-card a {
+color: var(--color-maroon);
+font-weight: bold;
+}
+
+/* 7. CALLOUT COMPONENTS */
+.callout,
+.note,
+.warning {
+background: var(--color-callout);
+border-left: 6px solid var(--color-gold);
+padding: var(--space-xl);
+margin: var(--space-3xl) 0;
+}
+
+/* 8. FORM COMPONENTS */
+form {
+border: 1px solid var(--color-border);
+padding: var(--space-2xl);
+background: var(--color-light);
+}
+
+label {
+display: block;
+margin-bottom: 6px;
+font-weight: bold;
+color: var(--color-text);
+}
+
+input,
+select,
+textarea {
+width: 100%;
+padding: var(--space-md);
+border: 1px solid var(--color-border);
+border-radius: var(--radius-sm);
+margin-bottom: var(--space-lg);
+font-size: 16px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+outline: 3px solid var(--color-gold);
+}
+
+/* 9. SECTIONS / RESOURCES */
+.section {
+margin-bottom: var(--space-4xl);
+}
+
+.section h2 {
+color: var(--color-maroon);
+font-size: 32px;
+margin-bottom: var(--space-md);
+}
+
+.resources {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: var(--space-xl);
+}
+
+.resource {
+border: 1px solid var(--color-border);
+padding: var(--space-xl);
+border-radius: var(--radius-lg);
+}
+
+.resource h3 {
+color: var(--color-maroon);
+}
+
+/* 10. UTILITIES */
+.text-center,
+.center {
+text-align: center;
+}
+
+.hidden {
+display: none;
+}
+
+/* 11. RESPONSIVE DESIGN */
+@media (max-width: 700px) {
+.card-grid,
+.resources {
+grid-template-columns: 1fr;
+}
+
+.hero h1 {
+font-size: 32px;
+}
+
+.site-header nav ul {
+flex-direction: column;
+}
+}
+
+/* 12. PRINT SUPPORT */
+@media print {
+body {
+background: white;
+color: black;
+}
+
+header,
+.site-header,
+footer {
+background: white;
+color: black;
+}
+
+.site-header nav,
+.button,
+.btn,
+button {
+display: none;
+}
+
+.card,
+.event-card,
+.speaker-card,
+.resource {
+break-inside: avoid;
+}
+
+a {
+color: black;
+text-decoration: underline;
+}
+}
+
+
+/*
+AI Disclosure – GIT 414/515 Module 2
+
+I used ChatGPT to help refactor and organize my CSS
+stylesheet. AI assisted me with identifying repeated
+styles, creating CSS custom properties, grouping
+similar components, and reducing code duplication.
+
+I reviewed the suggested changes and used them to
+better understand CSS organization and maintainability.
+*/
